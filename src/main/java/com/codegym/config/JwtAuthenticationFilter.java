@@ -41,7 +41,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter { // Cần đ�
         } catch (Exception e) {
             logger.error("Can NOT set user authentication -> Message: {}", e);
         }
-
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
         filterChain.doFilter(request, response);                            // nếu không có lỗi thì chuyển tiếp request
     }
 
